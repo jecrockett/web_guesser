@@ -4,8 +4,7 @@ require 'sinatra/reloader'
 SECRET_NUMBER = rand(100)
 
 get '/' do
-  guess = params['guess']
-  message = check_guess(guess)
+  message = check_guess(params['guess'])
   background_color = check_background_color(message)
   erb :index, :locals => { :message => message, :background_color => background_color }
 end
@@ -31,7 +30,5 @@ end
       "#56ce56"
     else
       "#ff9090"
-
+    end
   end
-
-end
